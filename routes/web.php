@@ -3,8 +3,10 @@
 use App\Http\Livewire\ShowTweets;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/tweets', ShowTweets::class);
+Route::middleware('auth')->group(function() {
 
-Route::get('/', function () {
-    return view('welcome');
+    Route::get('/tweets', ShowTweets::class);
+    
 });
+
+require __DIR__.'/auth.php';
