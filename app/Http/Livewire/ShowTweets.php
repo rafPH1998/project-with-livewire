@@ -15,11 +15,13 @@ class ShowTweets extends Component
 
     protected $rules = [
         'content' => 'required|min:2|max:200|unique:tweets'
-    ];
+    ]; 
 
     public function render()
     {
-        $tweets = Tweet::with('user')->paginate(5);
+        $tweets = Tweet::with('user')
+                        ->latest()
+                        ->paginate(2);
 
         return view('livewire.show-tweets', [
             'tweets' => $tweets

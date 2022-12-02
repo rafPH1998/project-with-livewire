@@ -33,8 +33,8 @@
       <div class="flex m-8 bg-white shadow-md rounded p-4">
          <div class="w-1/8 pl-3 text-center">
             <div class="w-1/8 pl-3 text-center">
-               @if ($tweet->user->photo)
-                   <img src="{{ url("storage/{$tweet->user->photo}") }}" alt="{{ $tweet->user->name }}" class="rounded-full h-8 w-8">
+               @if ($tweet->user->image)
+                   <img src="{{ url("storage/{$tweet->user->image}") }}" alt="{{ $tweet->user->name }}" class="rounded-full h-8 w-8">
                @else
                    <img src="{{ url('images/profile.png') }}" alt="{{ $tweet->user->name }}" class="rounded-full h-8 w-8">
                @endif
@@ -53,8 +53,8 @@
    @endforeach
 
    <hr>
-
    <div class="py-12">
       {{ $tweets->links() }}
    </div>
+
 </div>
